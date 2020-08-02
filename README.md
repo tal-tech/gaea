@@ -11,7 +11,7 @@ Build & Run
 $ cd $GOPATH/src/
 
 //clone the framework to local
-$ git clone https://github.com/tal-tech/gaea.git
+$ git clone git@github.com:tal-tech/gaea.git
 
 //Will use makefile to compile and generate binary files to the bin directory
 $ make 
