@@ -10,7 +10,6 @@ import (
 
 	logger "git.100tal.com/wangxiao_go_lib/xesLogger"
 	"git.100tal.com/wangxiao_go_lib/xesTools/jsutil"
-	"git.100tal.com/wangxiao_go_lib/xesTools/kafkautil"
 	"github.com/spf13/cast"
 )
 
@@ -126,13 +125,6 @@ func JsonMustMarshal(v interface{}) string {
 	}
 
 	return string(result)
-}
-
-func SendKafka(topic string, msg []byte) {
-	err := kafkautil.Send2Proxy(topic, msg)
-	if err != nil {
-		logger.E("SendKafkaError", topic+" %v", err)
-	}
 }
 
 /***

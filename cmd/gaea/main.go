@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"runtime/debug"
+	"time"
 
 	"gaea/app/router"
 	"gaea/version"
@@ -34,11 +35,11 @@ func main() {
 	//Add middleware
 	//You can customize the middleware according to your actual needs
 	engine.Use(
-		middleware.Logger(middleware.CheckStat1),
 		middleware.Recovery(),
 		middleware.XesLoggerMiddleware(),
 		middleware.RequestHeader(),
 	)
+
 	router.RegisterRouter(engine)
 
 	//Front hook for service startup
@@ -60,6 +61,9 @@ func main() {
 }
 
 func recovery() {
+	//panic cause program exit quickly，Some logs may not have time to be written to disk
+	time.Sleep(time.Second)
+
 	if rec := recover(); rec != nil {
 		log.Printf("Panic Panic occur")
 		if err, ok := rec.(error); ok {
