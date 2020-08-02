@@ -5,14 +5,20 @@ Otherwise, the portability of the system will be poor, and developers will not b
 Incorporated into a complete set of solutions: dependency management, configuration management, compilation and deployment, monitoring & alarms, and support for one-click quick construction of web applications. If you are considering writing a web server in Golang, then Gaea is undoubtedly your best choice!
 
 ## Quick Start
-Build & Run
+### Notice
+You need to replace the name in the project, such as `gaea` => `your app name`
+
 ```golang
 //Recommended  $GOPATH/src  as your workspace
 $ cd $GOPATH/src/
 
 //clone the framework to local
 $ git clone git@github.com:tal-tech/gaea.git
+```
 
+### Build & Run
+
+```golang
 //Will use makefile to compile and generate binary files to the bin directory
 $ make 
 ```
@@ -54,5 +60,5 @@ func GaeaDemo(ctx *gin.Context) {
 
 5.Try it!
 ```
-curl -X POST http://127.0.0.1/demo/test -d "param=1"
+curl http://127.0.0.1:9898/demo/test
 ```
