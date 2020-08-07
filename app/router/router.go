@@ -9,5 +9,4 @@ import (
 func RegisterRouter(router *gin.Engine) {
 	entry := router.Group("/demo")
 	entry.GET("/test", democontroller.GaeaDemo)
-	entry.GET("/websocket", democontroller.WebSocketDemo)
 }

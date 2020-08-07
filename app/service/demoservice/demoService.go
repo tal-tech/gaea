@@ -4,7 +4,7 @@ import (
 	"context"
 	"math/rand"
 
-	logger "git.100tal.com/wangxiao_go_lib/xesLogger"
+	logger "github.com/tal-tech/loggerX"
 )
 
 func DoFun(ctx context.Context, param string) (ret map[string]interface{}, err error) {

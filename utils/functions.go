@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"github.com/gin-gonic/gin"
 	"reflect"
 	"strings"
 	"time"
@@ -8,9 +9,10 @@ import (
 	"fmt"
 	"math"
 
-	logger "git.100tal.com/wangxiao_go_lib/xesLogger"
-	"git.100tal.com/wangxiao_go_lib/xesTools/jsutil"
+	"context"
 	"github.com/spf13/cast"
+	logger "github.com/tal-tech/loggerX"
+	"github.com/tal-tech/xtools/jsutil"
 )
 
 func RemoveDuplicateAndEmpty(arr []string) []string {
@@ -198,4 +200,12 @@ func MapIntersect(s1, s2 []string) []string {
 		}
 	}
 	return intersect
+}
+
+func TransferToContext(c *gin.Context) context.Context {
+	ctx := context.Background()
+	for k, v := range c.Keys {
+		ctx = context.WithValue(ctx, k, v)
+	}
+	return ctx
 }

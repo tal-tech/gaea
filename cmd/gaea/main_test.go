@@ -11,11 +11,11 @@ import (
 	"testing"
 	"time"
 
-	logger "git.100tal.com/wangxiao_go_lib/xesLogger"
-	"git.100tal.com/wangxiao_go_lib/xesServer/ginhttp"
-	"git.100tal.com/wangxiao_go_lib/xesTools/confutil"
-	"git.100tal.com/wangxiao_go_lib/xesTools/flagutil"
 	"github.com/spf13/cast"
+	"github.com/tal-tech/hera/ginhttp"
+	logger "github.com/tal-tech/loggerX"
+	"github.com/tal-tech/xtools/confutil"
+	"github.com/tal-tech/xtools/flagutil"
 )
 
 func TestServer(t *testing.T) {

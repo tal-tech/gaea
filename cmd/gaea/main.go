@@ -8,11 +8,10 @@ import (
 	"gaea/app/router"
 	"gaea/version"
 
-	"git.100tal.com/wangxiao_go_lib/xesGoKit/middleware"
-	bs "git.100tal.com/wangxiao_go_lib/xesServer/bootstrap"
-	"git.100tal.com/wangxiao_go_lib/xesServer/ginhttp"
-	"git.100tal.com/wangxiao_go_lib/xesTools/confutil"
-	"git.100tal.com/wangxiao_go_lib/xesTools/flagutil"
+	bs "github.com/tal-tech/hera/bootstrap"
+	"github.com/tal-tech/hera/ginhttp"
+	"github.com/tal-tech/xtools/confutil"
+	"github.com/tal-tech/xtools/flagutil"
 
 	"github.com/spf13/cast"
 )
@@ -34,11 +33,7 @@ func main() {
 
 	//Add middleware
 	//You can customize the middleware according to your actual needs
-	engine.Use(
-		middleware.Recovery(),
-		middleware.XesLoggerMiddleware(),
-		middleware.RequestHeader(),
-	)
+	engine.Use()
 
 	router.RegisterRouter(engine)
 
