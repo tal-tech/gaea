@@ -17,48 +17,29 @@ $ git clone git@github.com:tal-tech/gaea.git
 ```
 
 ### Build & Run
+The following is a simple example, detailed [Documentation](https://github.com/tal-tech/gaea-doc)
 
 ```golang
 //Will use makefile to compile and generate binary files to the bin directory
-$ make 
-```
+$ cd gaea
+$ make
+$ ./bin/gaea
+2020/08/26 14:40:02 CONF INIT,path:../conf/conf.ini
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
 
-## Example
-1.Config server port
-```golang
-//conf/conf.ini
-[HTTP]
-port = 9898
-;...
-```
+[GIN-debug] GET    /demo/test                --> gaea/app/controller/democontroller.GaeaDemo (1 handlers)
+2020/08/26 14:40:02 [overseer master] run
+2020/08/26 14:40:02 [overseer master] starting /mnt/d/codes/go/src/gaea/bin/gaea
+2020/08/26 14:40:02 CONF INIT,path:../conf/conf.ini
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
 
-2.Add router
-```golang
-//app/router/router.go is the file that manage all URI
-func RegisterRouter(router *gin.Engine) {
-	entry := router.Group("/demo", middleware.PerfMiddleware(), middleware.XesLoggerMiddleware())
-	entry.GET("/test", democontroller.GaeaDemo)
-}
-```
+[GIN-debug] GET    /demo/test                --> gaea/app/controller/democontroller.GaeaDemo (1 handlers)
+2020/08/26 14:40:02 [overseer slave#1] run
+2020/08/26 14:40:02 [overseer slave#1] start program
+2020/08/26 14:40:09 [overseer master] proxy signal (window changed)
 
-4.Controller (mvc programming style)
-```golang
-//app/router/
-func GaeaDemo(ctx *gin.Context) {
-	goCtx := xesgin.TransferToContext(ctx)
-	param := ctx.PostForm("param")
-	ret, err := demoservice.DoFun(goCtx, param)
-	if err != nil {
-		resp := xesgin.Error(err)
-		ctx.JSON(http.StatusOK, resp)
-	} else {
-		resp := xesgin.Success(ret)
-		ctx.JSON(http.StatusOK, resp)
-	}
-}
-```
-
-5.Try it!
-```
-curl http://127.0.0.1:9898/demo/test
 ```
