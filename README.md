@@ -17,7 +17,7 @@ $ git clone git@github.com:tal-tech/gaea.git
 ```
 
 ### Build & Run
-The following is a simple example, detailed [Documentation](https://github.com/tal-tech/gaea-doc)
+The following is a simple example, detailed [Documentation](https://github.com/tal-tech/gaea-doc/blob/master/SUMMARY.md)
 
 ```golang
 //Will use makefile to compile and generate binary files to the bin directory
@@ -43,3 +43,33 @@ $ ./bin/gaea
 2020/08/26 14:40:09 [overseer master] proxy signal (window changed)
 
 ```
+
+## Comparison of routing performance of major mainstream frameworks
+
+![pic](doc/images/jianjie_xingneng.png)
+
+(Picture to Resource Network)
+
+#### Gaea Benchmark
+Compared with the native Gin, the point that the Gaea framework affects performance is actually all concentrated on the middleware, because every http request will be run again, so observe the impact on the overall performance when each middle is turned on
+##### Environment
+
+| Metrics |  Remarks |
+| ---- | ---- |
+| SyesTem |  vm centos7 |
+| Mem| 1GB |
+|CPU| 1|
+|Request number| 100000|
+|Concurrent number |100|
+|Data|{"code":0,"data":"hell world","msg":"ok","stat":1}|
+ 
+ 
+![pic](doc/images/perf.png)
+
+We can clearly see from the figure:
+* Gaea's default configuration will bring a certain amount of energy consumption, about 30%
+* Among them, the `Logger` middleware has the largest impact on the performance of each middleware, and other middleware is almost negligible
+
+*Note: The middleware in the test is used for testing and not open source*
+
+In actual project applications, when [Log](https://github.com/tal-tech/loggerX) middleware is the bottleneck, we can close it or adjust the log level to `WARNING`
