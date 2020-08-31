@@ -17,48 +17,59 @@ $ git clone git@github.com:tal-tech/gaea.git
 ```
 
 ### Build & Run
+The following is a simple example, detailed [Documentation](https://github.com/tal-tech/gaea-doc/blob/master/SUMMARY.md)
 
 ```golang
 //Will use makefile to compile and generate binary files to the bin directory
-$ make 
+$ cd gaea
+$ make
+$ ./bin/gaea
+2020/08/26 14:40:02 CONF INIT,path:../conf/conf.ini
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /demo/test                --> gaea/app/controller/democontroller.GaeaDemo (1 handlers)
+2020/08/26 14:40:02 [overseer master] run
+2020/08/26 14:40:02 [overseer master] starting /mnt/d/codes/go/src/gaea/bin/gaea
+2020/08/26 14:40:02 CONF INIT,path:../conf/conf.ini
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /demo/test                --> gaea/app/controller/democontroller.GaeaDemo (1 handlers)
+2020/08/26 14:40:02 [overseer slave#1] run
+2020/08/26 14:40:02 [overseer slave#1] start program
+2020/08/26 14:40:09 [overseer master] proxy signal (window changed)
+
 ```
 
-## Example
-1.Config server port
-```golang
-//conf/conf.ini
-[HTTP]
-port = 9898
-;...
-```
+## Comparison of routing performance of major mainstream frameworks
 
-2.Add router
-```golang
-//app/router/router.go is the file that manage all URI
-func RegisterRouter(router *gin.Engine) {
-	entry := router.Group("/demo", middleware.PerfMiddleware(), middleware.XesLoggerMiddleware())
-	entry.GET("/test", democontroller.GaeaDemo)
-}
-```
+![pic](doc/images/jianjie_xingneng.png)
 
-4.Controller (mvc programming style)
-```golang
-//app/router/
-func GaeaDemo(ctx *gin.Context) {
-	goCtx := xesgin.TransferToContext(ctx)
-	param := ctx.PostForm("param")
-	ret, err := demoservice.DoFun(goCtx, param)
-	if err != nil {
-		resp := xesgin.Error(err)
-		ctx.JSON(http.StatusOK, resp)
-	} else {
-		resp := xesgin.Success(ret)
-		ctx.JSON(http.StatusOK, resp)
-	}
-}
-```
+(Picture to Resource Network)
 
-5.Try it!
-```
-curl http://127.0.0.1:9898/demo/test
-```
+#### Gaea Benchmark
+Compared with the native Gin, the point that the Gaea framework affects performance is actually all concentrated on the middleware, because every http request will be run again, so observe the impact on the overall performance when each middle is turned on
+##### Environment
+
+| Metrics |  Remarks |
+| ---- | ---- |
+| SyesTem |  vm centos7 |
+| Mem| 1GB |
+|CPU| 1|
+|Request number| 100000|
+|Concurrent number |100|
+|Data|{"code":0,"data":"hell world","msg":"ok","stat":1}|
+ 
+ 
+![pic](doc/images/perf.png)
+
+We can clearly see from the figure:
+* Gaea's default configuration will bring a certain amount of energy consumption, about 30%
+* Among them, the `Logger` middleware has the largest impact on the performance of each middleware, and other middleware is almost negligible
+
+*Note: The middleware in the test is used for testing and not open source*
+
+In actual project applications, when [Log](https://github.com/tal-tech/loggerX) middleware is the bottleneck, we can close it or adjust the log level to `WARNING`
