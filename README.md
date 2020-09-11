@@ -101,7 +101,6 @@ func GaeaDemo(ctx *gin.Context) {
 
 ### 运行
 ```go
-$ ./bin/gaea
 $ rigger start
 2019/11/06 21:50:03 CONF INIT,path:../conf/conf.ini
 [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
