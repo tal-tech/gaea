@@ -1,5 +1,9 @@
 ## 简介
-![pic](./doc/images/11.png)
+<p align="center">
+ <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
+     <img src="https://i.ibb.co/PN1rS28/11.png?raw=true"  alt="Gaea Logo" align=center />
+ </a> 
+</p>
 
 Gaea是一基于`Gin`的Web框架。 在实际工作中，在将项目应用于生产环境之前，还需要解决一系列其他工程问题,
 否则，系统的可移植性将很差，并且开发人员将无法专注于业务开发。
