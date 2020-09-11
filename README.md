@@ -1,5 +1,9 @@
 ## 简介
-![pic](./doc/images/11.png)
+<p align="center">
+ <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
+     <img src="https://i.ibb.co/PN1rS28/11.png?raw=true"  alt="Gaea Logo" align=center />
+ </a> 
+</p>
 
 Gaea是一基于`Gin`的Web框架。 在实际工作中，在将项目应用于生产环境之前，还需要解决一系列其他工程问题,
 否则，系统的可移植性将很差，并且开发人员将无法专注于业务开发。
@@ -133,7 +137,13 @@ $ curl  http://127.0.0.1:9898/demo/test
 
 ## 各大主流框架路由性能对比
 
-![pic](./doc/images/jianjie_xingneng.png)
+<p align="center">
+ <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
+     <img src="https://i.ibb.co/TB64zTd/jianjie-xingneng.png"  alt="Gaea Logo" align=center />
+ </a> 
+</p>
+
+
 (图片来自于网络)
 
 
@@ -152,7 +162,11 @@ Gaea框架相比于原生Gin 影响性能的点其实是全部集中在中间件
  
 ### 压测结果
 
-![pic](./doc/images/perf.png)
+<p align="center">
+ <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
+     <img src="https://i.ibb.co/Wyjr9Zs/perf.png"  alt="Gaea Logo" align=center />
+ </a> 
+</p>
 
 从图中我们可以明显看出：
 * Gaea的默认配置会带来一定的性能耗损，大约30%
