@@ -139,16 +139,10 @@ $ curl  http://127.0.0.1:9898/demo/test
 
 <p align="center">
  <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
-     <img src="https://i.ibb.co/PN1rS28/11.png?raw=true"  alt="Gaea Logo" align=center />
+     <img src="https://i.ibb.co/TB64zTd/jianjie-xingneng.png"  alt="Gaea Logo" align=center />
  </a> 
 </p>
 
-
-<p align="center">
- <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
-     <img src="https://i.ibb.co/TB64zTd/jianjie-xingneng.png?raw=true"  alt="Gaea Logo" align=center />
- </a> 
-</p>
 
 (图片来自于网络)
 
@@ -170,7 +164,7 @@ Gaea框架相比于原生Gin 影响性能的点其实是全部集中在中间件
 
 <p align="center">
  <a href="https://tal-tech.github.io/gaea-doc/" target="_blank">
-     <img src="https://i.ibb.co/Wyjr9Zs/perf.png?raw=true"  alt="Gaea Logo" align=center />
+     <img src="https://i.ibb.co/Wyjr9Zs/perf.png"  alt="Gaea Logo" align=center />
  </a> 
 </p>
 
