@@ -75,7 +75,9 @@ Usage of ./bin/myproject:
 [Server]
 ;Gin启动的模式,可选debug/release
 mode=debug
+;http server 监听端口
 addr=:9898
+;是否开启平滑重启
 grace=true
 readTimeout=3s
 writeTimeout=3s
