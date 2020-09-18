@@ -72,8 +72,13 @@ Usage of ./bin/myproject:
 1.Config server port
 ```golang
 //conf/conf.ini
-[HTTP]
-port = 9898
+[Server]
+;Gin启动的模式,可选debug/release
+mode=debug
+addr=:9898
+grace=true
+readTimeout=3s
+writeTimeout=3s
 ;...
 ```
 
