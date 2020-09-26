@@ -1,9 +1,10 @@
 module gaea
 
-go 1.12
+replace github.com/smallnest/rpcx v0.0.0 => github.com/smallnest/rpcx v0.0.0-20200214051052-c65a6415f3d1
 
 require (
 	github.com/Unknwon/goconfig v0.0.0-20200908083735-df7de6a44db8 // indirect
+	github.com/envoyproxy/go-control-plane v0.6.9 // indirect
 	github.com/gin-gonic/gin v1.6.3
 	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/gogo/googleapis v1.1.0 // indirect
@@ -22,7 +23,7 @@ require (
 	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
 	github.com/samuel/go-zookeeper v0.0.0-20200724154423-2164a8ac840e // indirect
 	github.com/sirupsen/logrus v1.5.0 // indirect
-	github.com/smallnest/rpcx v0.0.0-20200924044220-f2cdd4dea15a // indirect
+	github.com/smallnest/rpcx v0.0.0 // indirect
 	github.com/spf13/cast v1.3.1
 	github.com/streadway/handy v0.0.0-20200128134331-0f66f006fb2e // indirect
 	github.com/tal-tech/connPool v0.0.0-20200806112113-738c408fe6ae // indirect
@@ -35,4 +36,5 @@ require (
 	github.com/toolkits/sys v0.0.0-20170615103026-1f33b217ffaf // indirect
 	go.uber.org/zap v1.16.0 // indirect
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
+	google.golang.org/appengine v1.4.0 // indirect
 )
