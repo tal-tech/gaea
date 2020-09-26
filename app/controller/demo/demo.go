@@ -1,10 +1,11 @@
-package democontroller
+package demo
 
 import (
 	"net/http"
 
-	"gaea/app/service/demoservice"
+	"gaea/app/service/demo"
 	"gaea/utils"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,7 +13,7 @@ import (
 func GaeaDemo(ctx *gin.Context) {
 	goCtx := utils.TransferToContext(ctx)
 	param := ctx.PostForm("param")
-	ret, err := demoservice.DoFun(goCtx, param)
+	ret, err := demo.DoFun(goCtx, param)
 	if err != nil {
 		resp := utils.Error(err)
 		ctx.JSON(http.StatusOK, resp)
