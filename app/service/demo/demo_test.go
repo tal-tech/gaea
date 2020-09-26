@@ -1,4 +1,4 @@
-package demoservice
+package demo
 
 import (
 	"context"
