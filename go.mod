@@ -27,7 +27,7 @@ require (
 	github.com/spf13/cast v1.3.1
 	github.com/streadway/handy v0.0.0-20200128134331-0f66f006fb2e // indirect
 	github.com/tal-tech/connPool v0.0.0-20200806112113-738c408fe6ae // indirect
-	github.com/tal-tech/hera v1.0.0
+	github.com/tal-tech/hera v1.0.1
 	github.com/tal-tech/loggerX v1.0.0
 	github.com/tal-tech/xtools v0.0.0-20200925092432-5d398cc834e0
 	github.com/toolkits/file v0.0.0-20160325033739-a5b3c5147e07 // indirect
