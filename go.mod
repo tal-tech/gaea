@@ -28,6 +28,7 @@ require (
 	github.com/streadway/handy v0.0.0-20200128134331-0f66f006fb2e // indirect
 	github.com/tal-tech/connPool v0.0.0-20200806112113-738c408fe6ae // indirect
 	github.com/tal-tech/hera v1.0.1
+	github.com/tal-tech/xtools v1.0.0
 	github.com/tal-tech/loggerX v1.0.1
 	github.com/toolkits/file v0.0.0-20160325033739-a5b3c5147e07 // indirect
 	github.com/toolkits/nux v0.0.0-20191107142017-8ddcb501004c // indirect
