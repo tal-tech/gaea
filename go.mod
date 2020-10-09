@@ -29,7 +29,6 @@ require (
 	github.com/tal-tech/connPool v0.0.0-20200806112113-738c408fe6ae // indirect
 	github.com/tal-tech/hera v1.0.1
 	github.com/tal-tech/loggerX v1.0.1
-	github.com/tal-tech/xtools v0.0.0-20200925092432-5d398cc834e0
 	github.com/toolkits/file v0.0.0-20160325033739-a5b3c5147e07 // indirect
 	github.com/toolkits/nux v0.0.0-20191107142017-8ddcb501004c // indirect
 	github.com/toolkits/slice v0.0.0-20141116085117-e44a80af2484 // indirect
