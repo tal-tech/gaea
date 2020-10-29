@@ -20,6 +20,8 @@ default: build
 
 build:
 		go build -tags "$(REGISTRY) build" -ldflags $(LD_FLAGS) -gcflags "-N" -i -o ./bin/$(SERVICE) ./$(MAIN)
+build-windows:
+		go build -tags "$(REGISTRY) build" -ldflags $(LD_FLAGS) -gcflags "-N" -i -o ./bin/$(SERVICE).exe ./$(MAIN)
 race:
 		go build -ldflags $(LD_FLAGS) -i -v -o ./bin/$(SERVICE) -race ./$(MAIN)
 dev: build
